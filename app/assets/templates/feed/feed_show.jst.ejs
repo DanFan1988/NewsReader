@@ -1,0 +1,13 @@
+<h1> <%= feed.get('title') %> </h1>
+<%= feed.get('url') %>
+
+<p> <button class="refresh">Refresh</button> </p>
+
+<ul>
+<% feed.get('entries').each(function (entry) { %>
+<li><a href="#/feeds/<%=feed.id%>/entries/<%=entry.id%>"><%=entry.get('title')%></a></li>
+
+<% }) %>
+</ul>
+
+
