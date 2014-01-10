@@ -29,7 +29,7 @@ NewReader.Routers.Router = Backbone.Router.extend({
   _swapView: function(view){
     this._currentView && this._currentView.remove()
     this._currentView = view
-    $('body').html(view.render())
+    $('div#feeds_content').html(view.render())
   },
 
   entryShow: function(feed_id, id) {

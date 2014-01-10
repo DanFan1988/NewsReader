@@ -4,13 +4,14 @@ class SessionController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username],
                                      params[:user][:password])
     if @user
-      user.login!
+      login!(user)
     else
       redirect_to :root
     end
   end
 
   def destroy
-    @user
+    @user = user.find_by_token(session[:token])
+    logout!(@user)
   end
 end
